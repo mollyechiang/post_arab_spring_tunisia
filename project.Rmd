@@ -90,7 +90,8 @@ x %>%
   labs(title = "Figure 1: Indicators of Health in Tunisia",
        x = "Year",
        y = " ",
-       caption = "Red = Infant Mortality (per 1,000 live births)\n Blue = Life Expectancy (in years)\n Data from the World Bank")
+       caption = "Red = Infant Mortality per 1,000 live births\n Blue = Life Expectancy in years\n (Data from the World Bank)") +
+  theme_minimal()
 
 ```
 
@@ -105,7 +106,8 @@ x %>%
        subtitle = "Measured as annual percent on consumer prices",
        x = "Year",
        y = "Annual Percent",
-       caption = "Data from the World Bank")
+       caption = "(Data from the World Bank)") +
+  theme_minimal()
 
 ```
 
@@ -119,7 +121,8 @@ x %>%
   labs(title = "Figure 3: Exports and Imports in Tunisia",
        x = "Year",
        y = "Percent of GDP",
-       caption = "Red = Imports\n Blue = Exports\n Data from the World Bank")
+       caption = "Red = Imports\n Blue = Exports\n (Data from the World Bank)") +
+  theme_minimal()
 
 ```
 
@@ -133,7 +136,8 @@ x %>%
        subtitle = "Gross National Income per capita as determined by the Atlas Method in Tunisia",
        x = "Year",
        y = "Current US",
-       caption = "Data from the World Bank")
+       caption = "(Data from the World Bank)") +
+  theme_minimal()
 
 ```
 
@@ -150,7 +154,8 @@ x %>%
   labs(title = "Figure 5: Percent Unemployment With Varying Degrees of Education",
        x = "Year",
        y = "Percent of Education Class Unemployed",
-       caption = "Red = Advanced Education\n Green = Intermediate Education\n Black = Total Unemployment\n Blue = Basic Education\n (Data from the World Bank)")
+       caption = "Red = Advanced Education\n Green = Intermediate Education\n Black = Total Unemployment\n Blue = Basic Education\n (Data from the World Bank)") +
+  theme_minimal()
 
 ```
 
@@ -164,7 +169,8 @@ x %>%
   labs(title = "Figure 6: Tunisian School Enrollment in Tertiary Education",
        x = "Year",
        y = "Percent of Class Enrolled in Tertiary Education",
-       caption = "Data from the World Bank")
+       caption = "(Data from the World Bank)") +
+  theme_minimal()
 
 ```
 
@@ -179,7 +185,8 @@ x %>%
        subtitle = "The percent of the total population over 15 years old participating in the labor force",
        x = "Year",
        y = "Percent of Total Population",
-       caption = "(Data from the World Bank)")
+       caption = "(Data from the World Bank)") +
+  theme_minimal()
 
 ```
 
