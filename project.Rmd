@@ -1,0 +1,187 @@
+---
+title: "Middle East Final Project"
+author: "Molly Chiang"
+date: "4/19/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+
+library(janitor)
+library(tidyverse)
+
+raw <- read_csv("tunisia.csv") %>%
+       clean_names() %>%
+       select(-country_code, -indicator_code, -country_name)
+
+x <- raw %>%
+     gather(time, value, x1960:x2019) %>%
+     select(-x65) %>%
+     pivot_wider(names_from = indicator_name, values_from = value) %>%
+     clean_names() %>%
+     mutate(time = seq(from = 1960, to = 2019)) %>%
+     select(-informal_employment_percent_of_total_non_agricultural_employment,
+            -rural_land_area_sq_km,
+            -land_area_sq_km,
+            -urban_land_area_sq_km,
+            -adequacy_of_social_insurance_programs_percent_of_total_welfare_of_beneficiary_households,
+            -coverage_of_social_insurance_programs_percent_of_population,
+            -female_headed_households_percent_of_households_with_a_female_head,
+            -human_capital_index_hci_upper_bound_scale_0_1,
+            -compulsory_education_duration_years,
+            -cause_of_death_by_non_communicable_diseases_percent_of_total,
+            -internally_displaced_persons_total_displaced_by_conflict_and_violence_number_of_people,
+            -educational_attainment_at_least_completed_upper_secondary_population_25_total_percent_cumulative,
+            -educational_attainment_at_least_bachelors_or_equivalent_population_25_total_percent_cumulative,
+            -current_education_expenditure_total_percent_of_total_expenditure_in_public_institutions,
+            -adolescents_out_of_school_percent_of_lower_secondary_school_age,
+            -school_enrollment_secondary_percent_net,
+            -intentional_homicides_per_100_000_people,
+            -educational_attainment_at_least_completed_post_secondary_population_25_male_percent_cumulative,
+            -adjusted_net_enrollment_rate_primary_percent_of_primary_school_age_children,
+            -net_migration,
+            -poverty_gap_at_5_50_a_day_2011_ppp_percent,
+            -gni_per_capita_ppp_current_international,
+            -gni_current_us,
+            -gni_atlas_method_current_us,
+            -government_expenditure_on_education_total_percent_of_government_expenditure,
+            -merchandise_exports_to_economies_in_the_arab_world_percent_of_total_merchandise_exports,
+            -agricultural_raw_materials_exports_percent_of_merchandise_exports,
+            -medium_and_high_tech_exports_percent_manufactured_exports,
+            -mortality_rate_neonatal_per_1_000_live_births,
+            -fertility_rate_total_births_per_woman,
+            -birth_rate_crude_per_1_000_people,
+            -refugee_population_by_country_or_territory_of_origin,
+            -death_rate_crude_per_1_000_people,
+            -gdp_per_capita_ppp_current_international,
+            -government_expenditure_on_education_total_percent_of_gdp,
+            -educational_attainment_at_least_completed_post_secondary_population_25_total_percent_cumulative,
+            -children_out_of_school_percent_of_primary_school_age,
+            -educational_attainment_at_least_completed_primary_population_25_years_total_percent_cumulative,
+            -unemployment_total_percent_of_total_labor_force_national_estimate,
+            -literacy_rate_adult_total_percent_of_people_ages_15_and_above,
+            -primary_completion_rate_total_percent_of_relevant_age_group,
+            -labor_force_with_advanced_education_percent_of_total_working_age_population_with_advanced_education,
+            -military_expenditure_percent_of_general_government_expenditure,
+            -urban_population_percent_of_total_population,
+            -rural_population_percent_of_total_population,
+            -urban_population_growth_annual_percent,
+            -rural_population_growth_annual_percent,
+            -export_value_index_2000_100,
+            -import_value_index_2000_100,
+            -merchandise_exports_current_us,
+            -lifetime_risk_of_maternal_death_percent,
+            -use_of_imf_credit_dod_current_us,
+            -population_male_percent_of_total_population,
+            -population_female_percent_of_total_population)
+
+```
+
+
+
+```{r fig1, warning = FALSE}
+
+x %>%
+  ggplot(aes(x = time, y = mortality_rate_infant_per_1_000_live_births)) +
+  geom_line(color = "red") +
+  geom_line(aes(y = life_expectancy_at_birth_total_years), color = "blue") +
+  geom_vline(xintercept = 2011, linetype = "dashed") +
+  labs(title = "Figure 1: Indicators of Health in Tunisia",
+       x = "Year",
+       y = " ",
+       caption = "Red = Infant Mortality (per 1,000 live births)\n Blue = Life Expectancy (in years)\n Data from the World Bank")
+
+```
+
+```{r fig2, warning = FALSE}
+
+x %>%
+  slice(24:59) %>%
+  ggplot(aes(x = time, y = inflation_consumer_prices_annual_percent)) +
+  geom_line(color = "red") +
+  geom_vline(xintercept = 2011, linetype = "dashed") +
+  labs(title = "Figure 2: Inflation in Tunisia",
+       subtitle = "Measured as annual percent on consumer prices",
+       x = "Year",
+       y = "Annual Percent",
+       caption = "Data from the World Bank")
+
+```
+
+```{r fig3, warning = FALSE}
+
+x %>%
+  ggplot(aes(x = time, y = imports_of_goods_and_services_percent_of_gdp)) +
+  geom_line(color = "red") +
+  geom_line(aes(y = exports_of_goods_and_services_percent_of_gdp), color = "blue") +
+  geom_vline(xintercept = 2011, linetype = "dashed") +
+  labs(title = "Figure 3: Exports and Imports in Tunisia",
+       x = "Year",
+       y = "Percent of GDP",
+       caption = "Red = Imports\n Blue = Exports\n Data from the World Bank")
+
+```
+
+```{r fig4, warning = FALSE}
+
+x %>%
+  ggplot(aes(x = time, y = gni_per_capita_atlas_method_current_us)) +
+  geom_line(color = "red") +
+  geom_vline(xintercept = 2011, linetype = "dashed") +
+  labs(title = "Figure 4: GNI Per Capita (Atlas Method)",
+       subtitle = "Gross National Income per capita as determined by the Atlas Method in Tunisia",
+       x = "Year",
+       y = "Current US",
+       caption = "Data from the World Bank")
+
+```
+
+```{r fig5, warning = FALSE}
+
+x %>%
+  slice(46:54) %>%
+  ggplot(aes(x = time, y = unemployment_with_advanced_education_percent_of_total_labor_force_with_advanced_education)) +
+  geom_line(color = "red") +
+  geom_line(aes(y = unemployment_with_intermediate_education_percent_of_total_labor_force_with_intermediate_education), color = "green") +
+  geom_line(aes(y = unemployment_with_basic_education_percent_of_total_labor_force_with_basic_education), color = "blue") +
+  geom_line(aes(y = unemployment_total_percent_of_total_labor_force_modeled_ilo_estimate), color = "black") +
+  geom_vline(xintercept = 2011, linetype = "dotted") +
+  labs(title = "Figure 5: Percent Unemployment With Varying Degrees of Education",
+       x = "Year",
+       y = "Percent of Education Class Unemployed",
+       caption = "Red = Advanced Education\n Green = Intermediate Education\n Black = Total Unemployment\n Blue = Basic Education\n (Data from the World Bank)")
+
+```
+
+```{r fig6, warning = FALSE}
+
+x %>%
+  slice(12:60) %>%
+  ggplot(aes(x = time, y = school_enrollment_tertiary_percent_gross)) +
+  geom_line(color = "red") +
+  geom_vline(xintercept = 2011, linetype = "dashed") +
+  labs(title = "Figure 6: Tunisian School Enrollment in Tertiary Education",
+       x = "Year",
+       y = "Percent of Class Enrolled in Tertiary Education",
+       caption = "Data from the World Bank")
+
+```
+
+```{r fig7, warning = FALSE}
+
+x %>%
+  slice(30:59) %>%
+  ggplot(aes(x = time, y = labor_force_participation_rate_total_percent_of_total_population_ages_15_modeled_ilo_estimate)) +
+  geom_line(color = "red") +
+  geom_vline(xintercept = 2011, linetype = "dashed") +
+  labs(title = "Figure 7: Labor Force Participation Rate",
+       subtitle = "The percent of the total population over 15 years old participating in the labor force",
+       x = "Year",
+       y = "Percent of Total Population",
+       caption = "(Data from the World Bank)")
+
+```
+
+
+
