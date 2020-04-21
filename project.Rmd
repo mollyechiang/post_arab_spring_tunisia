@@ -1,8 +1,9 @@
 ---
-title: "Middle East Final Project"
+title: "Success?"
+subtitle: "A Statistical Analysis of Tunisia after the Arab Spring"
 author: "Molly Chiang"
 date: "4/19/2020"
-output: html_document
+output: pdf_document
 ---
 
 ```{r setup, include=FALSE}
@@ -78,7 +79,17 @@ x <- raw %>%
 
 ```
 
+  The Arab Spring was a symbol of hope and possibility in the Middle East. A surprise to scholars, the Arab Spring proved the transition from authoritarianism to democracy in the Middle East could occur through popular mobilization (Zeghal, 2020). However, in the years after the revolutions in 2011, many Middle Eastern countries, even after initial success, have not achieved democracy and have instead been faced with violence, military coups, or the rise of new authoritarian regimes (Salamey, 2015). In Syria, uprisings against the oppressive regime have led to a bloody and tumultuous civil war (Yahia and Butler, 2015). In light of these results, Tunisia has arisen as a beacon of hope, as it is considered the only Middle Eastern country to have achieved democracy (Fraihat, 2016). The Tunisian transition to democracy was guided by thoughtful discussion and cooperation between Islamists and Liberals, resulting in the most progressive constitution in the Middle East (Fraihat, 2016). However, even with the relatively smooth process, have the issues the Tunisians argued for in the uprisings improved? Does the data reflect the same improvement and hope that is felt towards Tunisia’s post-Arab Spring political situation? If not, why? This paper aims to analyze world bank data on Tunisia to answer just those questions, and shed more light on the quantitative side of Tunisia after 2011. 
 
+  The start of the Arab Spring is easy to pinpoint, with the—literal—spark occuring on December 17th, 2010, when Mohamed Bouazizi set himself on fire in front of his local government building in interior Tunisia in response to his inability to afford a selling permit for the fruits and vegetables he sold on the streets (Zeghal, 2020). This one event led to a domino effect of demonstrations spreading from rural, central Tunisia to the south and then to the more affluent coastal regions, aided by the growing use of social media (Zeghal, 2020). Supported by coordination from labor unions across the nation, the uprisings soon converged in Tunis, where a homogenous body of protestors called for the end of the regime and the resignation of authoritarian dictator Ben Ali (Zeghal, 2020). The protestors were not particularly organized, had no political slogans or posters, and no Islamist vs Liberal agendas or conflicts, but they called for economic reform and opportunity, for bread and freedom. Spurred, like the other uprisings across the Middle East, first by economic opportunity and the job market and secondly by a yearning for democracy and freedom, the voice of the people was enough to get Ben Ali to leave on January 14th, 2011 (Zeghal, 2020).
+
+  After the revolts, Tunisia began its transition from authoritarianism to democracy with the previous 1959 constitution being discarded and a transitional technocratic government organizing the creation of  “The High Committee for the Realization of the Aims of the Revolution, the Political Reform, and the Democratic Transition,” to manage the governmental transition (Zeghal, 2020). The transitional committee created many new laws—on the press and political process—but most importantly an electoral law, creating a system of proportional representation of parties, which the committee very thoughtfully created with the intention of coalitionary compromise between political parties (Zeghal, 2020). The importance of this electoral law quickly became evident after the first free and fair elections in Tunisia to elect the National Constituent Assembly (NCA), for the purpose of writing a new constitution. The Islamist party al-Nahda won the majority of the seats in the NCA, but were constrained by the legislation of the transitional committee and were forced to govern in conjunction with other major parties like the center-left Congress For the Republic (CPR) party, which earned the second highest amount of seats, and others (Zeghal, 2020).
+
+  After these first elections, the leaders of Tunisia focused on the creation of the new constitution, where the role of Islam and religion in general was central to discussion. Although there were discrepancies among the Islamists and within the al-Nahda party, the NCA ended up defining Tunisia as a custodian of Islam, but without formal Shari’a (Zeghal, 2016). The NCA and al-Nadha determined Islam and modernity were not mutually exclusive, and that the people of Tunisia should have the ability to be Muslim in whatever way they see fit (Zeghal, 2016). While honoring a Muslim identity, the new constitution defined an electoral democracy without formal Shari’a courts, making Tunisia a “Muslim state without Shari’a” (Zeghal, 2016). In 2014, the new constitution containing promises of religious freedom, as well as other progressive ideas of freedom of expression, gender equality, and academic freedom was finally completed and signed into law (Yahia and Butler, 2015).  
+
+  With the success of democracy, free elections, and political compromise, much of the demands of the uprisings in early 2011 were realized. However, these revolts began with an economic and opportunistic origin, and an analysis of the post-revolution era with data on Tunisia from the world bank (Tunisia | Data) was carried out to identify if these original goals were also achieved. The world bank has databases of thousands of measurable variables on every country from around the world. In this case, the focus of analysis was on measures of economic strength and opportunity, the core ideas that the uprisings were based on. To investigate the resultative effect of the Arab Spring on these variables, this paper visualizes trends in a number of correlates before and after 2011.
+  
+\  
 
 ```{r fig1, warning = FALSE}
 
@@ -94,6 +105,9 @@ x %>%
   theme_minimal()
 
 ```
+
+Before turning to economy and opportunity, however, general health of the population was communicated via infant mortality and life expectancy. In Figure 1, it is clear the Arab Spring had no effect on either measure of health, and a general improvement in both variables since the 1960s. Although there remains large discrepancies between different regions of the country, particularly between the affluent coastal regions and the interior, this absence of change around 2011 is supported by the fact Tunisia had already had a pretty evolved health care system—with the regime actually leading many national programs to improve treatment and prevention of many communicable and infectious diseases—and the fact it was not a central pillar in the postrevolutionary reconstruction (Berhouma). 
+
 
 ```{r fig2, warning = FALSE}
 
@@ -125,6 +139,10 @@ x %>%
   theme_minimal()
 
 ```
+
+Economic strength of the country was investigated via GNI per capita (as determined by the Atlas method), imports and exports in the country as a percent of the GDP, and inflation rates around the Arab Spring. Figure 2 shows the inflation rate in Tunisia over time. Although a relatively volatile statistic, a general trend of increasing inflation can be observed starting in the mid-2000s and continuing after the Arab Spring. Import and exports as percent of GDP demonstrate generally complementary trends over time, as shown in Figure 3. However, there has been a distinct divergence since ~2011, with increased reliance on imports in comparison to exports. Additionally, Figure 4 shows Gross National Income (GNI) per capita (Gross Domestic Product plus net income received from overseas per capita). There is a clear dip in GNI just before 2011, indicating it was a factor in spurring the uprisings, and an immediate increase after the Arab Spring. However, in the past few years there has been a considerable decrease in GNI per capita that has not been matched in magnitude in the past ~40 years. This decreasing GNI per capita, coupled with increased reliance on imports are not extreme enough to signal debilitating economic turmoil, but certainly do not connote a vibrant, growing economy either. \
+
+
 
 ```{r fig4, warning = FALSE}
 
@@ -159,6 +177,11 @@ x %>%
 
 ```
 
+\
+Finally, opportunity was analyzed by looking at unemployment rates across different levels of educational attainment, enrollment in tertiary education, and labor force participation. Figure 5 illustrates unemployment in Tunisia leading up to and directly after the Arab Spring. Unemployment in all education classes increased from 2010 to 2011, a well-studied stimulus of the Arab Spring (Ogbonnaya, 2013), and plateaued and even decreased in some cases right after 2011. However, although overall unemployment and unemployment of those with basic and intermediate education has essentially stagnated (with a bit of decrease) since the uprisings, unemployment of those with advanced education has started to increase again. Perhaps related, enrollment in tertiary education (as shown in Figure 6) has stalled and decreased slightly after exponentially increasing in the decades leading up to 2011. Lastly, labor force participation rate displays an unusual trend. In Figure 7, labor participation rate dove in the mid-2000s, only to recover and reach a peak just after the Arab Spring, but now has begun another slow descent. Overall decrease in unemployment since 2011 is a promising sign of economic opportunity, but stagnant tertiary education enrollment, inconclusive labor participation, and increased unemployment of the most well-educated class casts a shadow on that improvement, particularly signalling a lack of advancement available for the highest-educated. 
+
+\
+
 ```{r fig6, warning = FALSE}
 
 x %>%
@@ -190,5 +213,38 @@ x %>%
 
 ```
 
+This statistical analysis reveals a mixed bag of results, but with a generally negative trend in economic and opportunistic correlates. Besides steady health indicators, the data showed a stagnation of GNI per capita, unemployment, and enrollment in higher education, a decrease in labor force participation rate, and an increase in inflation and reliance on imports. The explanation of the stagnation and even worsening of the economic situation in Tunisia post-2011 seen in the data comes from an understanding of the activity in the country in the immediate post-revolution era. After the euphoria of Ben Ali’s removal and the collapse of his authoritarian police-state, freedom of expression abruptly increased (Yahia and Butler, 2015). Large demonstrations and strikes continued throughout the country, which stifles economic productivity, as the constitution was written in order to pressure the government to continue to carry out the promises of the people, and not revert to authoritarianism (Yahia and Butler, 2015). In addition, the trajectory of recent Tunisian elections, while demonstrating democracy at work, also reveal fragility and transition in government, as well as growing polarization of political parties (Zeghal, 2020).  In the 2014 elections, there was a transition of power, and the Islamist party al-Nadha didn’t win the majority of seats (Zeghal, 2020). In the 2019 elections, al-Nadha once again gained the majority of seats, but only by a small margin, as the party has begun to erode into more left, liberal-leaning or to more right-leaning parties like the Islamist Dignity Coalition, which is very anti-western and has a strict understanding of Shari’a (Zeghal, 2020). All of this political upheaval, although indicative of successful democratic elections, also illustrate a fragile and adjusting government, still determining its identity in its first few years, all of which create an environment not very supportive of dramatic economic growth.
+
+However, even with a lack of economic growth and increased opportunity, the dialogue in Tunisia has remained a positive one. This dialogue has been supported no doubt by cooperative politics and successful democratic proceedings, but also by national dialogues organized by the government to increase social cohesion as a nation (Hamidi, 2015). Even with the data clearly not signifying economic prosperity the Tunisian population originally called for in 2011, very promisingly, positive discourse and public impression in Tunisia has continued. To maintain democracy and reach the goal of economic growth, Tunisia must work to safeguard its constitution, and continue to ensure freedom of expression and encourage an inclusive and cooperative government (Salamey, 2015). The nation must do this, while being mindful of the political polarization occuring, particularly among its Islamist parties, and of regnional conflicts (Salamey, 2015, Fraihat, 2016). In the end, only time and more data will really tell how Tunisia continues to grow and change since the Arab Spring. If the government remains thoughtful in decision-making, cognizant of the economic situation and general fragility, and cooperative between political parties, Tunisia will be able to continue to flourish as an Arab symbol of democracy and the ideology’s potential for success in the region. 
+
+The data and replication code for the figures in this paper can be found at: https://github.com/mollyechiang/modmdest100
+
+
+## Bibliography
+
+Fraihat, Ibrahim. “Tunisia.” Unfinished Revolutions, Yale University Press. Yale Scholarship Online, 2016. 
+   http://www.universitypressscholarship.com/view/10.12987/yale/9780300215632.001.0001/upso-9780300215632-chapter
+   -3. Accessed 19 Apr. 2020.
+
+Hamidi, Hannah. “A Comparative Analysis of the PostArab Spring National Dialogues in Tunisia and Yemen.” African 
+   Journal on Conflict Resolution, vol. 15, no. 3, 2015, pp. 11–35.
+
+Ogbonnaya, Ufiem. Arab Spring in Tunisia, Egypt and Libya: A Comparative Analysis of Causes and Determinants. no.    3, Fall 2013, http://www.ciaonet.org.ezp-prod1.hul.harvard.edu/record/29509.
+
+Salamey, Imad. “Post-Arab Spring: Changes and Challenges.” Third World Quarterly, vol. 36, no. 1, Routledge, Jan.    2015, pp. 111–29. Taylor and Francis+NEJM, doi:10.1080/01436597.2015.976025.
+
+Tunisia | Data. https://data.worldbank.org/country/tunisia. Accessed 19 Apr. 2020.
+
+Yahia, Mohammed, and Declan Butler. “After the ARAB SPRING.” Nature; London, vol. 520, no. 7549, Nature 
+   Publishing Group, Apr. 2015, pp. 604–07.
+
+Zeghal, Malika. “Constitutionalizing a Democratic Muslim State without Shari’a: The Religious Establishment in 
+   the Tunisian 2014 Constitution.” Shari’a Law and Modern Muslim Ethics, Indiana University Press, 2016.
+
+Zeghal, Malika. “Religion and Politics and The Arab Spring.” MODMDEST 100 Lecture 10. Harvard 
+   University. 16 Apr. 2020. Lecture.  
+
+Zeghal, Malika. “The Arab Spring and The Arts: State Patronage and Rebellion.” MODMDEST 100 
+   Lecture 11. Harvard University. 20 Apr. 2020. Lecture.  
 
 
